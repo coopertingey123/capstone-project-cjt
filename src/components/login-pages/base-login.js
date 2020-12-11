@@ -18,11 +18,12 @@ export default function baseLogin(props) {
             </div>
             
             <div className="login-wrapper">
-                <button type="submit">Login</button>
+                <button type="submit">Login as Client</button>
+                <button type="submit">Login as Owner</button>
             </div>
             
-            <div className="register-wrapper">
-                <a href="/registration-page">Don't have an account? Register here!</a>
+            <div className="signup-wrapper">
+                <a href="/signup">Don't have an account? Register here!</a>
             </div>
         </div>
     )
