@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function baseLogin(props) {
+
+    const[email, setEmail] = useState([""])
+    const[password, setPassword] = useState([""])
+   
+
+    
+
     return (
         <div className='base-login-wrapper'>
             <div className="welcome-wrapper">
@@ -19,7 +26,7 @@ export default function baseLogin(props) {
             
             <div className="login-wrapper">
                 <button type="submit">Login as Client</button>
-                <button type="submit">Login as Owner</button>
+                <button type="submit">Login as</button>
             </div>
             
             <div className="signup-wrapper">
