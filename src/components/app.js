@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
-import Homepage from "./home-pages/home"
-import BaseLogin from "./login-pages/base-login"
-import Signup from "./login-pages/registration-page"
+import Home from "./pages/home"
+import BaseLogin from "./auth/login"
+import Signup from "./auth/signup"
+import Navbar from "./navbar"
+
 
 export default class App extends Component {
   render() {
@@ -11,8 +13,9 @@ export default class App extends Component {
       <div className='app'>
         <BrowserRouter>
           <div className="wrapper">
+            <Navbar />
             <Switch>
-              <Route path exact="/" component={Homepage} />
+              <Route path="/home" component={Home} />
               <Route path="/login" component={BaseLogin} />
               <Route path="/signup" component={Signup} />
             </Switch>
