@@ -14,7 +14,7 @@ export default class Navbar extends Component {
         return (
             <div className='navbar-wrapper'>
                 <div className="navbar-top-left">
-                    <div className="nav-link-wrapper">
+                    <div className="name-wrapper">
                         Signed in as {client ? client : "guest"}
                     </div> 
 
@@ -25,12 +25,12 @@ export default class Navbar extends Component {
                     </div>
                     <div className="nav-link-wrapper">
                         <Link className="nav-link" to="/owner">
-                            My Business Owner
+                            My Clients
                         </Link>
                     </div>
                     <div className="nav-link-wrapper">
-                        <Link className="nav-link" to="/my-info">
-                            My info
+                        <Link className="nav-link" to="/add-client">
+                            Add client
                         </Link>
                     </div>
 

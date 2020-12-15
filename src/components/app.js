@@ -5,6 +5,7 @@ import Home from "./pages/home"
 import BaseLogin from "./auth/login"
 import Signup from "./auth/signup"
 import Navbar from "./navbar"
+import AddClient from "./owner/add-client"
 
 
 export default class App extends Component {
@@ -18,6 +19,7 @@ export default class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/login" component={BaseLogin} />
               <Route path="/signup" component={Signup} />
+              <Route path="/add-client" component={AddClient} />
             </Switch>
           </div>
         </BrowserRouter>
