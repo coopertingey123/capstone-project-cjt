@@ -41,7 +41,7 @@ export default class Login extends Component {
                 this.props.history.push("/home")
             }
             else {
-                this.setState({ loginFailed: True })
+                this.setState({ loginFailed: true })
             }
         })
         .catch(error => {
@@ -52,31 +52,33 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className='login-wrapper'>
-                <h1>Garbage Girls</h1>
-                <h2>Login to access your account</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="text"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        placeholder="Email"
-                    />
-                    <input 
-                        type="password"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        placeholder="Password"
-                    />
-                    <button type="submit">Login</button>
-                </form>
-                <div className="signup-wrapper">
-                    <a href="/signup">Don't have an account? Register here!</a>
+            <div className="body">
+                <div className='login-wrapper'>
+                    <h1>Garbage Girls</h1>
+                    <h2>Login to access your account</h2>
+                    <form onSubmit={this.handleSubmit}>
+                        <input 
+                            type="text"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            placeholder="Email"
+                        />
+                        <input 
+                            type="password"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            placeholder="Password"
+                        />
+                        <button type="submit">Login</button>
+                    </form>
+                    <div className="signup-wrapper">
+                        <a href="/signup">Don't have an account? Register here!</a>
+                    </div>
+                    {this.state.loginFailed ? <p>Invalid Credentials...</p> : null}
+                    {this.state.loginError ? <p>Error Logging in.. Please try again later</p> : null}
                 </div>
-                {this.state.loginFailed ? <p>Invalid Credentials...</p> : null}
-                {this.state.loginError ? <p>Error Logging in.. Please try again later</p> : null}
             </div>
         )
     }

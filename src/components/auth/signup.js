@@ -56,18 +56,15 @@ export default class Signup extends Component {
                 console.log("Error creating client: ", error)
                 this.setState({ error: true })
             })
+            console.log("Client added successfully")
         }
     }
 
     render() {
         return (
             <div>
-                <div className='registration-wrapper'>
-                    <button>Sign Up as a Customer</button>
-                    <button>Sign Up as a Business Owner</button>
-                </div>
                 <div className="form-wrapper">
-                    <form action="">
+                    <form>
                         <input
                             type="text"
                             name="email"

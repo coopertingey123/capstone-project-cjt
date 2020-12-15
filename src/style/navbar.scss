@@ -3,6 +3,7 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    
 
     .navbar-wrapper {
         display: flex;
@@ -15,7 +16,7 @@ body {
 
     
 
-    .nav-link {
+    .nav-link-wrapper {
         display: flex;
         width: 150px;
         height: 100%;
@@ -33,6 +34,7 @@ body {
     .navbar-top-left {
         display: flex;
         width: 100%;
+        color: white;
     }
 
     .navbar-top-right {

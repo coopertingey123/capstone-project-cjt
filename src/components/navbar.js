@@ -14,20 +14,25 @@ export default class Navbar extends Component {
         return (
             <div className='navbar-wrapper'>
                 <div className="navbar-top-left">
-                    <div className="nav-link">
+                    <div className="nav-link-wrapper">
                         Signed in as {client ? client : "guest"}
                     </div> 
-                    <Link className="nav-link" to="/home">
-                        Home
-                    </Link>  
 
-                    <Link className="nav-link" to="/owner">
-                        My Business Owner
-                    </Link>
-
-                    <Link className="nav-link" to="/my-info">
-                        My info
-                    </Link>
+                    <div className="nav-link-wrapper">
+                        <Link className="nav-link" to="/home">
+                            Home
+                        </Link>  
+                    </div>
+                    <div className="nav-link-wrapper">
+                        <Link className="nav-link" to="/owner">
+                            My Business Owner
+                        </Link>
+                    </div>
+                    <div className="nav-link-wrapper">
+                        <Link className="nav-link" to="/my-info">
+                            My info
+                        </Link>
+                    </div>
 
                 </div>
                     
@@ -35,7 +40,7 @@ export default class Navbar extends Component {
 
                 <div className="navbar-top-right">
                     
-                    <div className="nav-link">
+                    <div className="nav-link-wrapper">
                         <button onClick={handleLogout}> Log Out </button>
                     </div>
 
