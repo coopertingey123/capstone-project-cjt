@@ -74,7 +74,7 @@ export default class Login extends Component {
                         <button type="submit">Login</button>
                     </form>
                     <div className="signup-wrapper">
-                        <a href="/signup">Don't have an account? Register here!</a>
+                        <a href="/signup-as-owner">Don't have an account? Register here!</a>
                     </div>
                     {this.state.loginFailed ? <p>Invalid Credentials...</p> : null}
                     {this.state.loginError ? <p>Error Logging in.. Please try again later</p> : null}

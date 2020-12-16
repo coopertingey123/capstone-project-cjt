@@ -19,7 +19,7 @@ export default class PublicNavbar extends Component {
                     </div>  */}
 
                     <div className="nav-link-wrapper">
-                        <Link className="nav-link" to="/home">
+                        <Link className="nav-link" to="/">
                             Home
                         </Link>  
                     </div>
@@ -29,8 +29,8 @@ export default class PublicNavbar extends Component {
                         </Link>
                     </div>
                     <div className="nav-link-wrapper">
-                        <Link className="nav-link" to="/add-client">
-                            Become a garbage girl!
+                        <Link className="nav-link" to="/signup-as-owner">
+                            Become a Business Owner
                         </Link>
                     </div>
 
@@ -41,8 +41,9 @@ export default class PublicNavbar extends Component {
                 <div className="navbar-top-right">
                     
                     <div className="nav-link-wrapper">
-                        <button> Log out </button>
-                        <button> Log in </button>
+                        <Link className="nav-link" to="/login">
+                            LOG IN
+                        </Link>
                     </div>
 
                 </div>

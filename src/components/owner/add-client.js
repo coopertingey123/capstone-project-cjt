@@ -62,7 +62,6 @@ export default class AddClient extends Component {
                 console.log("Error creating client: ", error)
                 this.setState({ error: true })
             })
-            console.log("Client added successfully")
         }
     }
 
