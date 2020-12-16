@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Navbar from "./owner-navbar"
 
 export default class AddClient extends Component {
     constructor() {
@@ -67,7 +68,9 @@ export default class AddClient extends Component {
 
     render() {
         return (
+            
             <div className="body-wrapper">
+                <Navbar/>
                 <div className="form-wrapper">
                     <div className="text">
                         <h1>Add client</h1>

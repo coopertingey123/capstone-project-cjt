@@ -1,19 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Navbar from "./owner-navbar"
 
 export default function home(props) {
     return (
         <div className='home-wrapper'>
-
+            
             <div className="navbar-wrapper">
-                <div className="my-profile">
-                    My Profile
-                </div>
-                <div className="my-clients">
-                    My clients
-                </div>
-                <div className="add-new-client">
-                    Add client
-                </div>
+                <Navbar/>
             </div>
 
             <div className="search-for-client">

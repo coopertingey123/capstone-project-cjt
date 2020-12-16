@@ -43,7 +43,7 @@ body {
         }
 
         :hover {
-            background-color: $green;
+            background-color: $tan;
             transition: ease-in .5s;
             transition: ease-out .5s;
         }
@@ -63,7 +63,6 @@ body {
             height: 50px;
             font-size: large;
             cursor: pointer;
-            color: $green;
             border-radius: 10px;
         }
     }
