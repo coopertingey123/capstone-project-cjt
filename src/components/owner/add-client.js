@@ -8,14 +8,12 @@ export default class AddClient extends Component {
             firstName: "",
             lastName: "",
             email: "",
-            password: "",
-            confirmPassword: "",
             address: "",
             phoneNumber: "",
-            paymentMethod: "",
-            requests: "",
-            emailError: false,
-            passwordError: false
+            dayOfWeek: "",
+            checked: false,
+            infoForOwner: "",
+            emailError: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,22 +25,29 @@ export default class AddClient extends Component {
         })
     }
 
+    handleCheckboxChange = () => 
+        this.setState({ checked: true })
+
     handleSubmit(event) {
         event.preventDefault()
 
-        if (this.state.password === this.state.confirmPassword) {
+        if (this.state.checked) {
             fetch("http://127.0.0.1:5000/client/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
+                    first_name: this.state.firstName,
+                    last_name: this.state.lastName,
                     email: this.state.email,
-                    password: this.state.password
+                    address: this.state.address,
+                    phone_number: this.state.phoneNumber,
+                    day_of_week: this.state.dayOfWeek,
+                    info_for_owner: this.state.infoForOwner
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data == "Client added successfully") {
-                    Cookies.set("email", this.state.email)
                     this.props.history.push("/home")
                 }
                 else if (data === "Client already exists") {
@@ -67,7 +72,30 @@ export default class AddClient extends Component {
                     <div className="text">
                         <h1>Add client</h1>
                     </div>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
+
+                        <div className="wrapper">
+                            First name:
+                            <input
+                                type="text"
+                                name="firstName"
+                                value={this.state.firstName}
+                                onChange={this.handleChange}
+                                placeholder="First name"
+                            />
+                        </div>
+
+                        <div className="wrapper">
+                            Last name:
+                            <input
+                                type="text"
+                                name="lastName"
+                                value={this.state.lastName}
+                                onChange={this.handleChange}
+                                placeholder="Last Name"
+                            />
+                        </div>
+
                         <div className="wrapper">
                             Email:
                             <input
@@ -78,29 +106,7 @@ export default class AddClient extends Component {
                                 placeholder="Email"
                             />
                         </div>
-                        
-                        <div className="wrapper">
-                            Password:
-                            <input
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                                placeholder="Password"
-                            />
-                        </div>
-                        
-                        <div className="wrapper">
-                            Confirm password:
-                            <input
-                                type="password"
-                                name="confirmPassword"
-                                value={this.state.confirmPassword}
-                                onChange={this.handleChange}
-                                placeholder="Confirm Password"
-                            />
-                        </div>
-                        
+                                                
                         <div className="wrapper">
                             Address: 
                             <input
@@ -128,9 +134,9 @@ export default class AddClient extends Component {
                             <select
                                 type="text"
                                 name="dayOfWeek"
-                                // INSERT VALUE HERE ONCE CREATED IN THE DATABASE
-                                // onChange={this.handleChange}
-                                placeholder="day"
+                                value={this.state.dayOfWeek}
+                                onChange={this.handleChange}
+                                placeholder="Day of the week"
                             >
                                 <option value="sunday">Sunday</option>
                                 <option value="monday">Monday</option>
@@ -141,49 +147,43 @@ export default class AddClient extends Component {
                                 <option value="saturday">Saturday</option>
                             </select>
                         </div>
+
+                        <div className="wrapper">
+                            Do you agree to payments through PayPal, a free way to make payments?
+                            <input 
+                                type="checkbox"
+                                name="checked"
+                                placeholder="Yes"
+                                value={this.state.checked}
+                                onChange={this.handleCheckboxChange}
+                                />
+                        </div>
                         
-                        {/* <div className="payment-wrapper">
-                            Payment method
-                            Select one of the following:
-                            <select
-                                name="Payment Method"
-                                value={this.state.paymentMethod}
-                                type="text"
-                            > 
-                                <option value="venmo">Venmo</option>
-                                <option value="applePay">ApplePay</option>
-                                <option value="paypal">Paypal</option>
-                                <option value="cash">Cash</option>
-            
-                            </select>
-                            If venmo selected, please enter username:
-                            <input
-                                type="text"
-                                name="venmo-username"
-                                value={this.state.paymentMethod}
-                                onChange={this.handleChange}
-                                placeholder="Venmo username"
-                            />
-                        </div> */}
                         
                         <div className="wrapper">
                             <div className="text">
                                 Requests, warnings, dogs, gate key, etc.
                             </div>
-                            <textarea name="requests" placeholder="Needed info for business owner"></textarea>
+                            <textarea
+                                name="infoForOwner"
+                                placeholder="Needed info for business owner"
+                                value={this.state.infoForOwner}
+                                onChange={this.handleChange}
+                            />
                         </div>
                         
-                        
+                        <div className="button">
+                            <button type="submit">
+                                Sign up
+                            </button>
+                        </div>
                         
                     </form>
 
-                    <div className="button">
-                        <button type="submit">Sign up</button>
-                    </div>
+                    
 
                     {this.state.error ? <p>Error signing up... Please try again later</p> : null}
-                    {this.state.passwordError ? <p>Passwords do not match. Please try again</p> : null}
-                    {this.state.usernameError ? <p>Username already exists. Please enter another</p> : null}
+                    
                 </div>
             </div>
         )

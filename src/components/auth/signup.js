@@ -8,14 +8,12 @@ export default class Signup extends Component {
             firstName: "",
             lastName: "",
             email: "",
-            password: "",
-            confirmPassword: "",
             address: "",
             phoneNumber: "",
-            paymentMethod: "",
-            requests: "",
-            emailError: false,
-            passwordError: false
+            dayOfWeek: "",
+            paymentValidation: false,
+            infoForOwner: "",
+            emailError: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -30,19 +28,23 @@ export default class Signup extends Component {
     handleSubmit(event) {
         event.preventDefault()
 
-        if (this.state.password === this.state.confirmPassword) {
-            fetch("http://127.0.0.1:5000/user/add", {
+        if (this.state.paymentValidation === True) {
+            fetch("http://127.0.0.1:5000/client/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
+                    first_name: this.state.firstName,
+                    last_name: this.state.lastName,
                     email: this.state.email,
-                    password: this.state.password
+                    address: this.state.address,
+                    phone_number: this.state.phoneNumber,
+                    day_of_week: this.state.dayOfWeek,
+                    info_for_owner: this.state.infoForOwner
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data == "Client added successfully") {
-                    Cookies.set("email", this.state.email)
                     this.props.history.push("/home")
                 }
                 else if (data === "Client already exists") {
