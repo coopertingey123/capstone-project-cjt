@@ -26,12 +26,17 @@ export default class MyClients extends Component {
                 <Navbar/>
                 {this.state.data.map(client => 
                     <div className="client-wrapper">
-                        <h2>{client.first_name} {client.last_name}</h2>
-                        <h4>Phone number: {client.phone_number}</h4>
-                        <h4>Email: {client.email}</h4>
-                        <h4>Address: {client.address}</h4>
-                        <h4>Day of the week Trash taken out: {client.day_of_week}</h4>
-                        <h4>Additional Info: {client.info_for_owner}</h4>
+                        <div className="client-name">
+                            {client.first_name} {client.last_name}
+                        </div>
+                        <div className="client-info">
+                            Phone number: {client.phone_number} <br/>
+                            Email: {client.email}<br/>
+                            Address: {client.address}<br/>
+                            Day of the week Trash taken out: {client.day_of_week}<br/>
+                            Additional Info: {client.info_for_owner}<br/>
+                        </div>
+                        
                     </div>
                 )}               
             </div>
