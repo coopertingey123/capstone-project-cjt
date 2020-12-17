@@ -6,6 +6,7 @@ import BaseLogin from "./auth/login"
 import GetStarted from "./owner/get-started"
 import AddClient from "./owner/add-client"
 import OwnerSignup from "./public/signup-as-owner"
+import MyClients from "./owner/my-clients"
 
 
 export default class App extends Component {
@@ -20,6 +21,7 @@ export default class App extends Component {
               <Route path="/login" component={BaseLogin} />
               <Route path="/get-started" component={GetStarted} />
               <Route path="/add-client" component={AddClient} />
+              <Route path="/my-clients" component={MyClients} />
             </Switch>
           </div>
         </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from "../navbars/loggedIn"
+import Navbar from "../navigation/loggedIn"
 
 export default function getStarted(props) {
 

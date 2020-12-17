@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from "../navbars/notLoggedIn"
+import Navbar from "../navigation/notLoggedIn"
 
 export default class OwnerSignup extends Component {
     constructor() {

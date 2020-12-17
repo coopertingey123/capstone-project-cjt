@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from "../navbars/loggedIn"
+import Navbar from "../navigation/loggedIn"
 
 export default class AddClient extends Component {
     constructor() {
@@ -49,7 +49,7 @@ export default class AddClient extends Component {
             .then(response => response.json())
             .then(data => {
                 if (data == "Client added successfully") {
-                    this.props.history.push("/home")
+                    this.props.history.push("/")
                 }
                 else if (data === "Client already exists") {
                     this.setState({ emailError: true })
