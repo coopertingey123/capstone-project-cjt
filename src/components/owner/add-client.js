@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from "./owner-navbar"
+import Navbar from "../navbars/loggedIn"
 
 export default class AddClient extends Component {
     constructor() {

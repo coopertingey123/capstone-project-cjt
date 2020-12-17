@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from "./navbar"
+import Navbar from "../navbars/notLoggedIn"
 
 export default class OwnerSignup extends Component {
     constructor() {
@@ -142,6 +142,9 @@ export default class OwnerSignup extends Component {
                         </div>
 
                     </form>
+                    {this.state.error ? <p>Error signing up... Please try again later</p> : null}
+                    {this.state.passwordError ? <p>Passwords do not match. Please try again</p> : null}
+                    {this.state.usernameError ? <p>Email already exists. Please enter another</p> : null}
                 </div>
             </div>
         )

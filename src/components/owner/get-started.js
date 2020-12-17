@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import Navbar from "./owner-navbar"
+import Navbar from "../navbars/loggedIn"
 
 export default function getStarted(props) {
+
+
+
     return (
         <div className='home-wrapper'>
             <Navbar/>

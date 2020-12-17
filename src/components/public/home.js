@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Navbar from "./navbar"
+import Navbar from "../navbars/notLoggedIn"
 
 export default function home(props) {
 

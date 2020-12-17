@@ -1,5 +1,37 @@
-.base-login-wrapper {
+.input-wrapper {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    height: 60px;
+    width: 130px;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $blue;
+    margin-top: 20px;
+}
+
+input {
+    height: 30px;
+    width: 30vw;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.signup-wrapper {
+    margin-top: 20px;
+    :hover {
+        transition: ease-in-out .5s;
+        color: $blue;
+    }
 }

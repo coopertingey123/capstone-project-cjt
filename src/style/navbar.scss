@@ -15,13 +15,7 @@ body {
         color: white;
         background-color: $blue;
         font-family: 'Lato', sans-serif;
-
-    .name-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 20vw;
-    }
+        
 
     .nav-link-wrapper {
         display: flex;
@@ -30,22 +24,26 @@ body {
         align-items: center;
         justify-content: center;
         text-decoration: none;
+        
 
         .nav-link {
-            color: white;
             display: flex;
-            width: 150px;
+            color: white;
+            width: 20vw;
             height: 100%;
             align-items: center;
             justify-content: center;
-            // background-color: ;
-            text-decoration: none;
+            text-decoration: transparent;
+            
         }
 
         :hover {
-            background-color: $tan;
+            background-color: $off-white;
+            color: black;
             transition: ease-in .5s;
             transition: ease-out .5s;
+            text-decoration: underline;
+            
         }
         
     }

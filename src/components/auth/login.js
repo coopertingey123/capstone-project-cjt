@@ -3,8 +3,8 @@ import Cookies from "js-cookie"
 
 
 export default class Login extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             email: "",
@@ -26,19 +26,20 @@ export default class Login extends Component {
     handleSubmit(event) {
         event.preventDefault()
         Cookies.set("email", this.state.email)
-        fetch("http://127.0.0.1:5000/client/authentication", {
+        fetch("http://127.0.0.1:5000/owner/authentication", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
                 email: this.state.email,
                 password: this.state.password
-            })
+            }),
         })
         .then(response => response.json())
+            
         .then(data => {
-            if (data === "Successful Login") {
+            if (data.status === "logged_in") {
                 Cookies.set("email", this.state.email)
-                this.props.history.push("/home")
+                this.props.history.push("/get-started")
             }
             else {
                 this.setState({ loginFailed: true })
@@ -54,28 +55,38 @@ export default class Login extends Component {
         return (
             <div className="body">
                 <div className='login-wrapper'>
-                    <h1>Garbage Girls</h1>
-                    <h2>Login to access your account</h2>
+                    <h1>Trash Time</h1>
+                    <h2>Login to see your business information</h2>
                     <form onSubmit={this.handleSubmit}>
-                        <input 
-                            type="text"
-                            name="email"
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                            placeholder="Email"
-                        />
-                        <input 
-                            type="password"
-                            name="password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            placeholder="Password"
-                        />
+                        <div className="whole-input-wrapper">
+                            <div className="input-wrapper">
+                                Email:
+                                <input 
+                                    type="email"
+                                    name="email"
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    placeholder="Your email"
+                                />
+                            </div>
+                            
+                            <div className="input-wrapper">
+                                Password:                        
+                                <input 
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    placeholder="Your password"
+                                />
+                            </div>
+                        </div>
                         <button type="submit">Login</button>
+                        <div className="signup-wrapper">
+                            <a href="/signup-as-owner">Don't have an account? Register here!</a>
+                        </div>
                     </form>
-                    <div className="signup-wrapper">
-                        <a href="/signup-as-owner">Don't have an account? Register here!</a>
-                    </div>
+                    
                     {this.state.loginFailed ? <p>Invalid Credentials...</p> : null}
                     {this.state.loginError ? <p>Error Logging in.. Please try again later</p> : null}
                 </div>
