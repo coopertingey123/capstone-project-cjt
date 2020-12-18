@@ -14,6 +14,7 @@ export default class OwnerSignup extends Component {
             confirmPassword: "",
             emailError: false
         }
+        
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import Navbar from "../navigation/loggedIn"
+import Cookies from "js-cookie"
 
 export default class AddClient extends Component {
     constructor() {
@@ -14,10 +16,17 @@ export default class AddClient extends Component {
             dayOfWeek: "",
             checked: false,
             infoForOwner: "",
+            ownerEmail: "",
             emailError: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentDidMount() {
+        this.setState({
+            ownerEmail: Cookies.get("email")
+        })
     }
 
     handleChange(event) {
@@ -43,13 +52,14 @@ export default class AddClient extends Component {
                     address: this.state.address,
                     phone_number: this.state.phoneNumber,
                     day_of_week: this.state.dayOfWeek,
-                    info_for_owner: this.state.infoForOwner
+                    info_for_owner: this.state.infoForOwner,
+                    owner_email: this.state.ownerEmail
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data == "Client added successfully") {
-                    this.props.history.push("/")
+                    this.props.history.push("/get-started")
                 }
                 else if (data === "Client already exists") {
                     this.setState({ emailError: true })
@@ -64,17 +74,27 @@ export default class AddClient extends Component {
             })
         }
     }
-
+    
     render() {
+        
         return (
             
             <div className="body-wrapper">
+
                 <Navbar/>
                 <div className="form-wrapper">
                     <div className="text">
                         <h1>Add client</h1>
                     </div>
                     <form onSubmit={this.handleSubmit}>
+
+                        <div className="wrapper">
+                            Owner's Email:
+                            <div className="owners-email">
+                                {this.state.ownerEmail}
+                            </div>                              
+                            
+                        </div>
 
                         <div className="wrapper">
                             First name:
