@@ -4,19 +4,22 @@ import { Link } from "react-router-dom"
 import Cookies from "js-cookie"
 
 
-owner = Cookies.set("email")
+
 export default class LoggedIn extends Component {
     constructor() {
         super()
-
-        this.state = {
-        }
-
         
-       
+        this.state = {
+            owner: ""
+        }      
     }
     
-    
+    componentDidMount() {
+        this.setState({
+            owner: Cookies.get("email")
+        })
+    }
+
 
     handleLogout() {
         Cookies.remove("email")
@@ -28,7 +31,7 @@ export default class LoggedIn extends Component {
             <div className='navbar-wrapper'>
                 <div className="navbar-top-left">
                     <div className="name-wrapper">
-                        Signed in as {owner ? owner : "guest"}
+                        Signed in as {this.state.owner}
                     </div> 
 
                     <div className="nav-link-wrapper">
