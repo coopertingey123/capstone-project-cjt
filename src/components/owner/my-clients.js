@@ -11,9 +11,7 @@ export default class MyClients extends Component {
             data: [],
             owner: Cookies.get("email")
         }
-
-        // this.filterData = this.filterData.bind(this)
-        
+       
     }
 
     componentDidMount() {

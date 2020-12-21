@@ -80,14 +80,11 @@ export default class AddClient extends Component {
         return (
             
             <div className="body-wrapper">
-
-                <Navbar/>
+                
                 <div className="form-wrapper">
-                    <div className="text">
-                        <h1>Add client</h1>
-                    </div>
+                    <Navbar/>
                     <form onSubmit={this.handleSubmit}>
-
+                        <h1>Add client</h1>
                         <div className="wrapper">
                             Owner's Email:
                             <div className="owners-email">
@@ -201,11 +198,7 @@ export default class AddClient extends Component {
                         </div>
                         
                     </form>
-
-                    
-
-                    {this.state.error ? <p>Error signing up... Please try again later</p> : null}
-                    
+                    {this.state.error ? <p>Error signing up... Please try again later</p> : null}                    
                 </div>
             </div>
         )

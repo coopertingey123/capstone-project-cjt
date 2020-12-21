@@ -10,7 +10,7 @@ body {
     .navbar-wrapper {
         display: flex;
         justify-content: space-between;
-        height: 60px;
+        height: 80px;
         width: 100vw;
         color: white;
         background-color: $blue;
@@ -22,7 +22,7 @@ body {
         width: 20vw;
         height: 100%;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         text-decoration: none;
         
 
@@ -61,6 +61,7 @@ body {
             height: 50px;
             font-size: large;
             cursor: pointer;
+            background-color: $off-white;
             border-radius: 10px;
         }
     }
