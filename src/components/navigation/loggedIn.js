@@ -50,9 +50,9 @@ export default class LoggedIn extends Component {
                     </Link>
                 </div>
                 <div className="nav-side">
-                    
-                    <button onClick={this.handleLogout}> Log Out </button>
-                    
+                    <Link className="nav-Link" to="/">
+                        <button onClick={this.handleLogout}> Log Out </button>
+                    </Link>
                 </div>
             </div>
         )
