@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+
 
 import Home from "./public/home"
 import BaseLogin from "./auth/login"
@@ -10,7 +12,31 @@ import MyClients from "./owner/my-clients"
 import OwnerSearch from "./public/owner-search"
 
 
+
+
 export default class App extends Component {
+  constructor() {
+    super()
+    
+    this.state = {
+        owner: ""
+    }      
+}
+
+componentDidMount() {
+  this.setState({
+      owner: Cookies.get("email")
+  })
+}
+
+  authorizedPages() {
+    return [
+      <Route path="/add-client" component={AddClient} />,
+      <Route path="/my-clients" component={MyClients} />,
+      <Route path="/get-started" component={GetStarted} />
+    ];
+  }
+
   render() {
     return (
       <div className='app'>
@@ -20,13 +46,8 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/signup-as-owner" component={OwnerSignup} />
               <Route path="/login" component={BaseLogin} />
-              <Route path="/get-started" component={GetStarted} />
-              <Route path="/add-client" component={AddClient} />
-              <Route path="/my-clients" component={MyClients} />
               <Route path="/owner-search" component={OwnerSearch} />
-              {/* <Route path="/search" component={SearchBox} /> */}
-              {/* <Route path="/owner-search-page" component={OwnerSearchPage} />
-              <Route path="/client-search-page" component={ClientSearchPage} /> */}
+              {this.state.owner !== "" ? this.authorizedPages() : null}             
             </Switch>
           </div>
         </BrowserRouter>

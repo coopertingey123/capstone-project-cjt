@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import {FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrashAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function navbarIfNotLoggedIn(props) {
     return (
         <div className='navbar-wrapper'>
             
             <div className="nav-side">
-                <h2>TRASH TIME!</h2>
+                <h2>TRASH TIME!  <FontAwesomeIcon icon={faTrashAlt} /></h2>
+                
             </div>
             <div className="nav-link-wrapper">
                 <Link className="nav-link" to="/">
@@ -27,7 +30,7 @@ export default function navbarIfNotLoggedIn(props) {
                 
             <div className="nav-side">
                 <Link className="nav-link" to="/login">
-                    <button>LOGIN</button>
+                    <button>LOGIN  <FontAwesomeIcon icon={faSignInAlt} /></button>
                 </Link>
             </div>
                 
