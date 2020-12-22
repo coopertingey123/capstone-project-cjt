@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Cookies from 'js-cookie'
 
-import Navbar from "../navigation/loggedIn"
+
+import Navbar from "../navigation/notLoggedIn"
 
 
 
@@ -11,7 +11,6 @@ export default class MyClients extends Component {
 
         this.state = {
             data: [],
-            owner: Cookies.get("email"),
             search: ""
         }
        
@@ -22,10 +21,7 @@ export default class MyClients extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            owner: Cookies.get("email")
-        })
-        fetch(`http://127.0.0.1:5000/client/get/my-clients/${this.state.owner}`, {
+        fetch(`http://127.0.0.1:5000/owners/get`, {
             method: "GET"
         })
         .then(response => response.json(""))
@@ -38,7 +34,7 @@ export default class MyClients extends Component {
     render() {
         let filteredClients = this.state.data.filter(
             (client) => {
-                return client.day_of_week.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                return client.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             }
         );
         return (
@@ -49,24 +45,21 @@ export default class MyClients extends Component {
                     <input
                         type="search"
                         className="search"
-                        placeholder="Filter clients by day of the week..."
+                        placeholder="Search for a specific owner by name..."
                         onChange={this.handleChange.bind(this)}
                         value={this.state.search}
                         
                     />
                 </div>
                 <div className='one-client-wrapper'>
-                    {filteredClients.map(client => 
+                    {filteredClients.map(owner => 
                         <div className="client-wrapper">
                             <div className="client-name">
-                                {client.first_name} {client.last_name}
+                                {owner.first_name} {owner.last_name}
                             </div>
                             <div className="client-info">
-                                Phone number: {client.phone_number} <br/><br/>
-                                Email: {client.email}<br/><br/>
-                                Address: {client.address}<br/><br/>
-                                Day of the week: {client.day_of_week}<br/><br/>
-                                Additional Info: {client.info_for_owner}<br/>
+                                Phone number: {owner.phone_number} <br/><br/>
+                                Email: {owner.email}<br/><br/>
                             </div>
                             
                         </div>

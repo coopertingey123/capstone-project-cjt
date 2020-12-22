@@ -185,9 +185,9 @@ export default class AddClient extends Component {
                         
                         
                         <div className="wrapper">
-                            <div className="text">
-                                Requests, warnings, dogs, gate key, etc.
-                            </div>
+                            
+                            Requests, warnings, dogs, gate key, etc.
+                            
                             <textarea
                                 name="infoForOwner"
                                 placeholder="Needed info for business owner"

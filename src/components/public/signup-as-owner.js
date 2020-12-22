@@ -67,7 +67,7 @@ export default class OwnerSignup extends Component {
                     <div className="text">
                         Business owners sign up and add their own clients.
                         Once signed up and logged in, you will have access to an "Add Clients" link,
-                        where you will be able to add a client and save their information.
+                        where you will be able to add clients and start your business.
                         
                     </div>
                     <form onSubmit={this.handleSubmit}>
