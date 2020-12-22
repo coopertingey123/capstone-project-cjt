@@ -167,15 +167,20 @@ export default class AddClient extends Component {
                             </select>
                         </div>
 
-                        <div className="wrapper">
+                        <div className="checkbox-wrapper">
                             Do you agree to payments through PayPal, a free way to make payments?
-                            <input 
-                                type="checkbox"
-                                name="checked"
-                                placeholder="Yes"
-                                value={this.state.checked}
-                                onChange={this.handleCheckboxChange}
+                            <div className="checkbox">
+                                {/* <label for="check">Yes</label> */}
+                                <input 
+                                    type="checkbox"
+                                    name="checked"
+                                    id="check"
+                                    value={this.state.checked}
+                                    onChange={this.handleCheckboxChange}
                                 />
+                                
+                             </div>
+                             
                         </div>
                         
                         
@@ -193,7 +198,7 @@ export default class AddClient extends Component {
                         
                         <div className="button">
                             <button type="submit">
-                                Sign up
+                                Add Client
                             </button>
                         </div>
                         

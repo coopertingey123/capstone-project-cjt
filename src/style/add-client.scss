@@ -1,5 +1,4 @@
 .form-wrapper {
-
     .wrapper {
         display: flex;
         flex-direction: column;
@@ -8,6 +7,7 @@
         height: 80px;
         margin-top: 7px;
         border: 5px $blue;
+        font-size: 1.2rem;
         
 
         input {
@@ -34,7 +34,27 @@
             cursor: pointer;
             outline: none;
         }
+        
 
+    }
+
+    .checkbox-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40vw;
+        height: 120px;
+        margin-top: 7px;
+        border: 5px $blue;
+        font-size: 1.2rem;
+
+        .checkbox {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        
     }
 
     button {
