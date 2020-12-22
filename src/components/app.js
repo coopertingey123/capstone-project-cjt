@@ -7,6 +7,9 @@ import GetStarted from "./owner/get-started"
 import AddClient from "./owner/add-client"
 import OwnerSignup from "./public/signup-as-owner"
 import MyClients from "./owner/my-clients"
+// import SearchBox from "./searchbar/client-searchbar"
+// import OwnerSearchPage from "./searchbar/owner-searchpage"
+// import ClientSearchPage from "./searchbar/client-searchpage"
 
 
 export default class App extends Component {
@@ -22,6 +25,9 @@ export default class App extends Component {
               <Route path="/get-started" component={GetStarted} />
               <Route path="/add-client" component={AddClient} />
               <Route path="/my-clients" component={MyClients} />
+              {/* <Route path="/search" component={SearchBox} /> */}
+              {/* <Route path="/owner-search-page" component={OwnerSearchPage} />
+              <Route path="/client-search-page" component={ClientSearchPage} /> */}
             </Switch>
           </div>
         </BrowserRouter>
