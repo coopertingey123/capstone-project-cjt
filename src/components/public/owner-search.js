@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 
+import Footer from "../navigation/footer"
 import Navbar from "../navigation/notLoggedIn"
 
 
@@ -65,8 +66,7 @@ export default class MyClients extends Component {
                         </div>
                     )}               
                 </div>
-
-                
+                <Footer/>
             </div>
         )
     }

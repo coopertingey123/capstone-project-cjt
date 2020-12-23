@@ -8,12 +8,23 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-
-    img {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        width: 400px;
-        height: 375px;
+    .about-wrapper {
+        img {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 40vw;
+            height: 60vh;
+            border: 4px solid $blue;
+            border-radius: 5px;
+        }
+    }
+    .get-started {
+        font-size: 1.4rem;
+        :hover {
+            color: $blue;
+            text-decoration: underline;
+            transition: ease-in-out .5s;
+        }
     }
 }
 
@@ -32,4 +43,6 @@ body {
         height: 100%;
         font-size: 1.1rem;
     }
+
+    
 }

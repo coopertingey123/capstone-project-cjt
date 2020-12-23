@@ -4,4 +4,50 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 60vw;
+
+    .text-wrapper {
+        width: 70vw;
+    }
+}
+.home-wrapper {
+    
+    p {
+        font-size: 1.2rem;
+    }
+    .add-clients-image {
+        img {
+            border: 3px solid $blue;
+            border-radius: 5px;
+            height: 70vh;
+            width: 40vw;
+        }
+    }
+    .salesman-image {
+        img {
+            border: 3px solid $blue;
+            border-radius: 5px;
+            height: 40vw;
+            height: 40vh;
+        }
+    }
+
+    .my-clients-image {
+        img {
+            border: 3px solid $blue;
+            border-radius: 5px;
+            width: 60vw;
+            height: 80vh;
+        }
+    }
+    
+}
+
+.trash-bins-image {
+    display: flex;
+    flex-direction: row;
+    img {
+        width: 33.3vw;
+        height: 20vh;
+    }
 }

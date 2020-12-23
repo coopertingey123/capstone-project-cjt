@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Cookies from 'js-cookie'
 
 import Navbar from "../navigation/loggedIn"
+import Footer from "../navigation/footer"
 
 
 
@@ -73,7 +74,7 @@ export default class MyClients extends Component {
                     )}               
                 </div>
 
-                
+                <Footer/>
             </div>
         )
     }

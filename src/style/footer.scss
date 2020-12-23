@@ -1,4 +1,13 @@
 .footer-wrapper {
     margin-bottom: 20px;
     margin-top: 20px;
+    background-color: $blue;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+
+    .instagram :hover {
+        color: white;
+        transition: ease-in-out .5s;
+    }
 }

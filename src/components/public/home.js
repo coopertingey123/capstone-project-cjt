@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 
 import Navbar from "../navigation/notLoggedIn"
-import TrashBin from "../../../static/assets/images/trash-image.jpg"
+import PushingGarbageBin from "../../../static/assets/images/pushinggarbagecan.jpg"
 import Footer from "../navigation/footer"
 
 export default function home(props) {
@@ -16,14 +16,12 @@ export default function home(props) {
                 <div className="about-wrapper">
                     Trash Time allows YOU to start up your own business in your local neighborhood!
                     <div>
-                        <img src={TrashBin}/>
+                        <img src={PushingGarbageBin}/>
                     </div>
+                    Get paid to roll your neighbors' trash bins out to the street before their garbage man comes <br/><br/>
                 </div>
                 <div className="get-started">
                     <a href="signup-as-owner">Click here to get started!</a>
-                </div>
-                <div className="img-wrapper">
-                    Insert Image here
                 </div>
                 <div className="reviews">
                     <div className="quote">

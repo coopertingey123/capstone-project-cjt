@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Navbar from "../navigation/loggedIn"
 import Cookies from "js-cookie"
+import Footer from "../navigation/footer"
 
 export default class AddClient extends Component {
     constructor() {
@@ -203,8 +204,10 @@ export default class AddClient extends Component {
                         </div>
                         
                     </form>
-                    {this.state.error ? <p>Error signing up... Please try again later</p> : null}                    
+                    {this.state.error ? <p>Error signing up... Please try again later</p> : null} 
+                    <Footer/>                   
                 </div>
+                
             </div>
         )
     }
