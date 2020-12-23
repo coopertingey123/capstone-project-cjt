@@ -30,7 +30,7 @@ export default class OwnerSignup extends Component {
         event.preventDefault()
 
         if (this.state.password === this.state.confirmPassword) {
-            fetch("http://127.0.0.1:5000/business-owner/add", {
+            fetch("https://capstone-backend-cjt.herokuapp.com/business-owner/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

@@ -43,7 +43,7 @@ export default class AddClient extends Component {
         event.preventDefault()
 
         if (this.state.checked) {
-            fetch("http://127.0.0.1:5000/client/add", {
+            fetch("https://capstone-backend-cjt.herokuapp.com/client/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

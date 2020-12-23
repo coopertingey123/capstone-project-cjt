@@ -26,7 +26,7 @@ export default class MyClients extends Component {
         this.setState({
             owner: Cookies.get("email")
         })
-        fetch(`http://127.0.0.1:5000/client/get/my-clients/${this.state.owner}`, {
+        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
             method: "GET"
         })
         .then(response => response.json(""))
