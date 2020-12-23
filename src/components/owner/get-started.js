@@ -4,7 +4,7 @@ import Footer from "../navigation/footer"
 import AddClientsImage from "../../../static/assets/images/sign-up.jpg"
 import SalesmanImage from "../../../static/assets/images/salesman.png"
 import MyClientsImage from "../../../static/assets/images/my-clients.jpg"
-import TrashBinsImage from "../../../static/assets/images/home-trash.jpg"
+
 
 export default function getStarted(props) {
 
@@ -47,11 +47,6 @@ export default function getStarted(props) {
                         friends, or family to get them started and grow your 
                         Trash Time small business!
                     </p>
-                    <div className="trash-bins-image">
-                        <img src={TrashBinsImage} alt=""/>
-                        <img src={TrashBinsImage} alt=""/>
-                        <img src={TrashBinsImage} alt=""/>
-                    </div>
 
                 </div>
             </div>
