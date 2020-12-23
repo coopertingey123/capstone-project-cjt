@@ -26,7 +26,7 @@ export default class Login extends Component {
     handleSubmit(event) {
         event.preventDefault()
         Cookies.set("email", this.state.email)
-        fetch("capstone-project-cjt.herokuapp.com/owner/authentication", {
+        fetch("http://127.0.0.1:5000/owner/authentication", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
