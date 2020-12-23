@@ -1,9 +1,9 @@
 @media (max-width: 600px) {
     body {
-        font-size: 12px;
+        font-size: 16px;
         .navbar-wrapper {
             flex-direction: column;
-            height: 200px;
+            height: 250px;
 
             justify-content: center;
             align-items: center;
@@ -51,6 +51,70 @@
         button {
             height: 40px;
             width: 80px;
+        }
+        .clients-wrapper {
+            input {
+                width: 75vw;
+            }
+            .client-name {
+                font-size: 18px;
+            }
+            .client-wrapper {
+                width: 80vw;
+                font-size: 14px;
+            }
+        }
+        .home-wrapper {
+            p {
+                font-size: 13px;
+            }
+            .add-clients-image {
+                img {
+                    height: 250px;
+                    width: 250px;
+                }
+            }
+            .salesman-image {
+                img {
+                    height: 215px;
+                    width: 300px;
+                }
+            }
+            .my-clients-image {
+                img {
+                    width: 60%;
+                    height: 80%;
+                }
+            }
+        }
+        .form-wrapper {
+            .wrapper {
+                width: 80vw;
+                text-align: center;
+                font-size: 18px;
+
+                h1 {
+                    font-size: 25px;
+                }
+
+                input {
+                    width: 80vw;
+                }
+                textarea {
+                    width: 80vw;
+                }
+                select {
+                    width: 80vw;
+                }
+            }
+            .checkbox-wrapper {
+                width: 80vw;
+                text-align: center;
+            }
+            .text {
+                width: 80vw;
+                font-size: 17px;
+            }
         }
 
         
