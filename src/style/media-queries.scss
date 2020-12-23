@@ -1,0 +1,70 @@
+@media (max-width: 600px) {
+    body {
+        font-size: 12px;
+        .navbar-wrapper {
+            flex-direction: column;
+            height: 200px;
+
+            justify-content: center;
+            align-items: center;
+
+            button {
+                width: 80px;
+                height: 26px;
+                font-size: small;
+            }
+
+            .nav-link-wrapper {
+                width: 50vw;
+            }
+        }
+
+        .home-wrapper {
+            .about-wrapper {
+                width: 70vw;
+                img {
+                    height: 180px;
+                    width: 140px;
+                }
+            }
+            .get-started {
+                font-size: 16px;
+            }
+        }
+
+        .reviews {
+            display: flex;
+            flex-direction: column;
+
+            .quote {
+                width: 70vw;
+                font-size: 14px;
+            }
+        }
+        .body {
+            .input-wrapper {
+                input {
+                    width: 75vw;
+                }
+            }
+        }
+        button {
+            height: 40px;
+            width: 80px;
+        }
+
+        
+
+    }
+
+    
+}
+
+@media (max-height: 600px) {
+    // body {
+    //     // font-size: 12px;
+    //     text-align: center;
+    // }
+
+    
+}

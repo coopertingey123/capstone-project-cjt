@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-
-
 import Navbar from "../navigation/notLoggedIn"
 import PushingGarbageBin from "../../../static/assets/images/pushinggarbagecan.jpg"
 import Footer from "../navigation/footer"
