@@ -12,6 +12,7 @@ button {
     cursor: pointer;
     background-color: $blue;
     margin-top: 20px;
+    text-align: center;
 }
 
 input {
@@ -41,4 +42,5 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
