@@ -13,15 +13,24 @@ export default class MyClients extends Component {
         this.state = {
             data: [],
             owner: Cookies.get("email"),
-            search: ""
+            search: "",
+            category: "Day of Week"
         }
-       
+        this.handleChange = this.handleChange.bind(this)
+        this.handleCategory = this.handleCategory.bind(this)
     }
 
     handleChange(event) {
         this.setState({search: event.target.value})
     }
 
+    handleCategory(event) {
+        this.setState({
+            category: event.target.value
+        })
+    }
+
+    
     componentDidMount() {
         this.setState({
             owner: Cookies.get("email")
@@ -39,7 +48,11 @@ export default class MyClients extends Component {
     render() {
         let filteredClients = this.state.data.filter(
             (client) => {
-                return client.day_of_week.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                if (this.state.category == "Day of Week") return client.day_of_week.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                if (this.state.category == "Name") return client.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                if (this.state.category == "Phone Number") return client.phone_number.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                if (this.state.category == "Email") return client.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                if (this.state.category == "") return client.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
             }
         );
         return (
@@ -47,13 +60,25 @@ export default class MyClients extends Component {
             <div className='clients-wrapper'>
                 <Navbar/>
                 <div className='clients-list-container'>
+                    <div className="name">
+                        <select
+                            type="text"
+                            value={this.state.category}
+                            onChange={this.handleCategory}
+                        >
+                            <option value={""}>None</option>
+                            <option value={"Day of Week"}>Day of week</option>
+                            <option value={"Name"}>Name</option>
+                            <option value={"Phone Number"}>Phone Number</option>
+                            <option value={"Email"}>Email</option>
+                        </select>
+                    </div>
                     <input
                         type="search"
                         className="search"
-                        placeholder="Filter clients by day of the week..."
+                        placeholder="Search for clients..."
                         onChange={this.handleChange.bind(this)}
-                        value={this.state.search}
-                        
+                        value={this.state.search}  
                     />
                 </div>
                 <div className='one-client-wrapper'>
