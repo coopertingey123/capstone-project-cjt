@@ -14,10 +14,12 @@ export default class MyClients extends Component {
             data: [],
             owner: Cookies.get("email"),
             search: "",
-            category: "Day of Week"
+            category: "Day of Week",
+            email: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleCategory = this.handleCategory.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     handleChange(event) {
@@ -28,6 +30,19 @@ export default class MyClients extends Component {
         this.setState({
             category: event.target.value
         })
+    }
+
+    handleDelete(email) {
+        
+        fetch(`https://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
+        .then(response => response.json())
+        .then(data=> {
+            console.log(data)
+            if (data === `Client with email ${email} was deleted`) {
+                clientWrapper.remove()
+            }
+        })
+        .catch(error => console.log(error))
     }
 
     
@@ -55,6 +70,7 @@ export default class MyClients extends Component {
                 if (this.state.category == "") return client.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
             }
         );
+        
         return (
             
             <div className='clients-wrapper'>
@@ -94,9 +110,13 @@ export default class MyClients extends Component {
                                 Day of the week: {client.day_of_week}<br/><br/>
                                 Additional Info: {client.info_for_owner}<br/>
                             </div>
-                            
+                            <div className="buttons-wrapper">
+                                <button onClick={() => this.handleDelete(client.email)}>Delete</button>
+                                {/* <button onClick={handleEdit()}>Edit</button> */}
+                            </div>
                         </div>
-                    )}               
+                    )}
+                                   
                 </div>
 
                 <Footer/>
