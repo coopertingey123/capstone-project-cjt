@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cookies from 'js-cookie'
+// import {confirmAlert} from "react-confirm-alert";
 
 import Navbar from "../navigation/loggedIn"
 import Footer from "../navigation/footer"
@@ -20,7 +21,10 @@ export default class MyClients extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleCategory = this.handleCategory.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
+        // this.confirmAlert = this.confirmAlert.bind(this)
     }
+
+    
 
     handleChange(event) {
         this.setState({search: event.target.value})
@@ -32,18 +36,40 @@ export default class MyClients extends Component {
         })
     }
 
+    // submit(email) {
+    //     confirmAlert({
+    //         title: "Confirm to delete",
+    //         message: "Are you sure you would like to delete this client?",
+    //         buttons: [
+    //             {
+    //                 label: "Yes",
+    //                 onClick: this.handleDelete(email)
+    //             },
+    //             {
+    //                 label: "No",
+    //                 onClick: () => alert("Click No")
+    //             }
+    //         ]
+    //     })
+    // }
+    
+
+    
+
     handleDelete(email) {
+        const shouldDelete = confirm('Do you really want to delete this client?');
+        if (shouldDelete) {
+       
+    
         
-        fetch(`https://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
+        fetch(`http://127.0.0.1:5000/client/delete/${email}`, { method: "DELETE" })
         .then(response => response.json())
         .then(data=> {
             console.log(data)
-            if (data === `Client with email ${email} was deleted`) {
-                clientWrapper.remove()
-            }
         })
         .catch(error => console.log(error))
     }
+}
 
     
     componentDidMount() {
@@ -58,6 +84,38 @@ export default class MyClients extends Component {
         .catch(error => console.log(error))
     }
 
+    componentDidUpdate() {
+        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
+            method: "GET"
+        })
+        .then(response => response.json(""))
+        .then(data => this.setState({ data: data }))
+        .catch(error => console.log(error))
+    }
+
+    // confirmAlert(email) {
+            
+    //     customUI: ({ onClose }) => {
+    //       return (
+    //         <div className='custom-ui'>
+    //           <h1>Are you sure?</h1>
+    //           <p>You want to delete this file?</p>
+    //           <button onClick={onClose}>No</button>
+    //           <button
+    //             onClick={() => {
+    //               this.handleDelete(email);
+    //               onClose();
+    //             }}
+    //           >
+    //             Yes, Delete it!
+    //           </button>
+    //         </div>
+    //       );
+    //     }
+    // };
+
+    
+
 
 
     render() {
@@ -69,7 +127,8 @@ export default class MyClients extends Component {
                 if (this.state.category == "Email") return client.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
                 if (this.state.category == "") return client.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
             }
-        );
+        )
+        
         
         return (
             

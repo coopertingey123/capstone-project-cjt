@@ -70,12 +70,18 @@
             p {
                 font-size: 13px;
             }
-            .add-clients-image {
-                img {
-                    height: 250px;
-                    width: 250px;
+            .search-for-client {
+                .text-wrapper {
+                    .add-clients-image {
+                        
+                        img {
+                            height: 250px;
+                            width: 250px;
+                        }
+                    }
                 }
             }
+            
             .salesman-image {
                 img {
                     height: 215px;

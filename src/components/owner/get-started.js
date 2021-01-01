@@ -38,8 +38,7 @@ export default function getStarted(props) {
                    <p>At the top in the My Clients section, 
                        you will be able to see the clients you 
                        have signed up, and filter through them 
-                       based on the day of the week their garbage
-                        man comes.</p>
+                       based on their information.</p>
                     <div className="my-clients-image">
                         <img src={MyClientsImage} alt=""/>
                     </div>
