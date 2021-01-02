@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Cookies from 'js-cookie'
-// import {confirmAlert} from "react-confirm-alert";
 
 import Navbar from "../navigation/loggedIn"
 import Footer from "../navigation/footer"
+
 
 
 
@@ -16,12 +16,13 @@ export default class MyClients extends Component {
             owner: Cookies.get("email"),
             search: "",
             category: "Day of Week",
-            email: ""
+            email: "",
+            checked: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleCategory = this.handleCategory.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
-        // this.confirmAlert = this.confirmAlert.bind(this)
+        // this.uncheckAll = this.uncheckAll.bind(this)
     }
 
     
@@ -36,40 +37,21 @@ export default class MyClients extends Component {
         })
     }
 
-    // submit(email) {
-    //     confirmAlert({
-    //         title: "Confirm to delete",
-    //         message: "Are you sure you would like to delete this client?",
-    //         buttons: [
-    //             {
-    //                 label: "Yes",
-    //                 onClick: this.handleDelete(email)
-    //             },
-    //             {
-    //                 label: "No",
-    //                 onClick: () => alert("Click No")
-    //             }
-    //         ]
-    //     })
-    // }
-    
-
-    
 
     handleDelete(email) {
         const shouldDelete = confirm('Do you really want to delete this client?');
         if (shouldDelete) {
-       
-    
-        
-        fetch(`http://127.0.0.1:5000/client/delete/${email}`, { method: "DELETE" })
-        .then(response => response.json())
-        .then(data=> {
-            console.log(data)
-        })
-        .catch(error => console.log(error))
+            fetch(`http://127.0.0.1:5000/client/delete/${email}`, { method: "DELETE" })
+            .then(response => response.json())
+            .then(data=> {
+                console.log(data)
+            })
+            .catch(error => console.log(error))
+        }
     }
-}
+
+    handleCheckboxChange = () => 
+        this.setState({ checked: true })
 
     
     componentDidMount() {
@@ -93,31 +75,16 @@ export default class MyClients extends Component {
         .catch(error => console.log(error))
     }
 
-    // confirmAlert(email) {
-            
-    //     customUI: ({ onClose }) => {
-    //       return (
-    //         <div className='custom-ui'>
-    //           <h1>Are you sure?</h1>
-    //           <p>You want to delete this file?</p>
-    //           <button onClick={onClose}>No</button>
-    //           <button
-    //             onClick={() => {
-    //               this.handleDelete(email);
-    //               onClose();
-    //             }}
-    //           >
-    //             Yes, Delete it!
-    //           </button>
-    //         </div>
-    //       );
-    //     }
-    // };
+    // uncheckAll(checked = true) {
+    //     const items = document.querySelectorAll('input[name="checkbox"]')
+    //     items.forEach((cb) => {
+    //         cb.checked = checked
+    //     })
+        
+    
+    // }
 
     
-
-
-
     render() {
         let filteredClients = this.state.data.filter(
             (client) => {
@@ -170,12 +137,25 @@ export default class MyClients extends Component {
                                 Additional Info: {client.info_for_owner}<br/>
                             </div>
                             <div className="buttons-wrapper">
+                                
+                                <div className="checkbox-wrapper">
+                                    Check if done
+                                    <div className="checkbox">
+                                        <input 
+                                            type="checkbox"
+                                            name="checkbox"
+                                            id="check"
+                                            value={this.state.checked}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                    </div>
+                                </div>
                                 <button onClick={() => this.handleDelete(client.email)}>Delete</button>
-                                {/* <button onClick={handleEdit()}>Edit</button> */}
+                                
                             </div>
                         </div>
                     )}
-                                   
+                    {/* <button onClick={() => this.uncheckAll}>Uncheck all boxes</button>                    */}
                 </div>
 
                 <Footer/>

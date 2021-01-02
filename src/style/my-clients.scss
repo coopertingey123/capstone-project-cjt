@@ -57,6 +57,14 @@ body {
             display: flex;
 
         }
+
+        .buttons-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
         
     }
 }
