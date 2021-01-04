@@ -138,7 +138,7 @@ export default class MyClients extends Component {
                             </div>
                             <div className="buttons-wrapper">
                                 
-                                <div className="checkbox-wrapper">
+                                {/* <div className="checkbox-wrapper">
                                     Check if done
                                     <div className="checkbox">
                                         <input 
@@ -149,7 +149,7 @@ export default class MyClients extends Component {
                                             onChange={this.handleCheckboxChange}
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                                 <button onClick={() => this.handleDelete(client.email)}>Delete Client</button>
                                 
                             </div>
