@@ -1,81 +1,72 @@
-body {
-    margin: 0px;
-    width: 100vw;
+.navbar-wrapper {
     display: flex;
     flex-direction: row;
-    background-color: $off-white;
-    font-family: 'Cabin', sans-serif;
-    font-size: 1.3rem;
-    
+    justify-content: space-between;
+    height: 80px;
+    width: 100vw;
+    color: white;
+    background-color: $blue;
+    text-align: center;
 
-    .navbar-wrapper {
+    .nav-side {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 80px;
-        width: 100vw;
-        color: white;
-        background-color: $blue;
-        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
 
-        .nav-side {
-            display: flex;
-            padding-left: 30px;
-            padding-right: 30px;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            
-            
-        }
-
-        .nav-link-wrapper {
-            display: flex;
-            height: 100%;
-            align-items: center;
-            color: white;
-            justify-content: space-around;
-            text-decoration: none;
-            
-
-            .nav-link {
-                display: flex;
-                color: white;
-                height: 100%;
-                width: 100%;
-                padding-right: 20px;
-                padding-left: 20px;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                text-decoration: transparent;
-
-                
-            }
-
-            :hover {
-                background-color: $off-white;
-                color: black;
-                transition: ease-in .5s;
-                transition: ease-out .5s;
-                text-decoration: underline;
-            }
-        }
-        
         button {
-            
             width: 100px;
             height: 45px;
             font-size: large;
             cursor: pointer;
             background-color: $off-white;
             border-radius: 10px;
-            margin-bottom: 15px;
+            
             
         }
-      
+        
+        
+    }
+
+    .nav-link-wrapper {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        color: white;
+        justify-content: space-around;
+        text-decoration: none;
+        
+
+        .nav-link {
+            display: flex;
+            color: white;
+            height: 100%;
+            width: 100%;
+            padding-right: 20px;
+            padding-left: 20px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: transparent;
+
+            
         }
 
-        
+        :hover {
+            background-color: $off-white;
+            color: black;
+            transition: ease-in .5s;
+            transition: ease-out .5s;
+            text-decoration: underline;
+        }
+    }
+    
+    
     
     }
+
+    
+
+

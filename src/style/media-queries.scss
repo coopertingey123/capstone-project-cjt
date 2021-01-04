@@ -8,10 +8,12 @@
             justify-content: center;
             align-items: center;
 
-            button {
-                width: 120px;
-                height: 30px;
-                font-size: small;
+            .nav-side {
+                button {
+                    width: 80px;
+                    height: 30px;
+                    font-size: 13px;
+                }
             }
 
             .nav-link-wrapper {
@@ -53,6 +55,7 @@
         button {
             height: 40px;
             width: 80px;
+            
         }
         .clients-wrapper {
             input {
@@ -64,6 +67,14 @@
             .client-wrapper {
                 width: 80vw;
                 font-size: 14px;
+                .buttons-wrapper {
+                    button {
+                        width: 100px;
+                        height: 30px;
+                        font-size: 13px;
+                    }
+                }
+                
             }
         }
         .home-wrapper {
@@ -123,7 +134,16 @@
                 width: 80vw;
                 font-size: 17px;
             }
+            .add-client-button {
+                button {
+                    width: 100px;
+                    height: 40px;
+                    font-size: 16px;
+                }
+            }
+            
         }
+        
 
         
 

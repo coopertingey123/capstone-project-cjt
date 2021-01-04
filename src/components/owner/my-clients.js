@@ -150,7 +150,7 @@ export default class MyClients extends Component {
                                         />
                                     </div>
                                 </div>
-                                <button onClick={() => this.handleDelete(client.email)}>Delete</button>
+                                <button onClick={() => this.handleDelete(client.email)}>Delete Client</button>
                                 
                             </div>
                         </div>

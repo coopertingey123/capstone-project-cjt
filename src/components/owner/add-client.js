@@ -197,7 +197,7 @@ export default class AddClient extends Component {
                             />
                         </div>
                         
-                        <div className="button">
+                        <div className="add-client-button">
                             <button type="submit">
                                 Add Client
                             </button>
