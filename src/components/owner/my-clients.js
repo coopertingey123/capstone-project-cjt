@@ -41,7 +41,7 @@ export default class MyClients extends Component {
     handleDelete(email) {
         const shouldDelete = confirm(`Do you really want to delete client ${email}?`);
         if (shouldDelete) {
-            fetch(`http://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
+            fetch(`https://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
             .then(response => response.json())
             .then(data=> {
                 console.log(data)
