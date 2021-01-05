@@ -32,7 +32,7 @@ export default class OwnerSignup extends Component {
         event.preventDefault()
 
         if (this.state.password === this.state.confirmPassword) {
-            fetch(process.env.REACT_APP_ADD_BUSINESS_OWNER, {
+            fetch("https://capstone-backend-cjt.herokuapp.com/business-owner/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

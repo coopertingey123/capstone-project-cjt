@@ -41,7 +41,7 @@ export default class MyClients extends Component {
     handleDelete(email) {
         const shouldDelete = confirm('Do you really want to delete this client?');
         if (shouldDelete) {
-            fetch(process.env.REACT_APP_DELETE_CLIENT, { method: "DELETE" })
+            fetch(`http://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
             .then(response => response.json())
             .then(data=> {
                 console.log(data)
@@ -58,7 +58,7 @@ export default class MyClients extends Component {
         this.setState({
             owner: Cookies.get("email")
         })
-        fetch(process.env.REACT_APP_GET_CLIENTS, {
+        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
             method: "GET"
         })
         .then(response => response.json(""))
@@ -67,7 +67,7 @@ export default class MyClients extends Component {
     }
 
     componentDidUpdate() {
-        fetch(process.env.REACT_APP_GET_CLIENTS, {
+        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
             method: "GET"
         })
         .then(response => response.json(""))

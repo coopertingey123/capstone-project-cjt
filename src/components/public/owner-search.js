@@ -23,7 +23,7 @@ export default class MyClients extends Component {
     }
 
     componentDidMount() {
-        fetch(process.env.REACT_APP_GET_OWNERS, {
+        fetch(`https://capstone-backend-cjt.herokuapp.com/owners/get`, {
             method: "GET"
         })
         .then(response => response.json(""))
