@@ -22,7 +22,7 @@ export default class MyClients extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleCategory = this.handleCategory.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
-        // this.uncheckAll = this.uncheckAll.bind(this)
+        
     }
 
     
@@ -41,7 +41,7 @@ export default class MyClients extends Component {
     handleDelete(email) {
         const shouldDelete = confirm('Do you really want to delete this client?');
         if (shouldDelete) {
-            fetch(`http://127.0.0.1:5000/client/delete/${email}`, { method: "DELETE" })
+            fetch(process.env.REACT_APP_DELETE_CLIENT, { method: "DELETE" })
             .then(response => response.json())
             .then(data=> {
                 console.log(data)
@@ -58,7 +58,7 @@ export default class MyClients extends Component {
         this.setState({
             owner: Cookies.get("email")
         })
-        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
+        fetch(process.env.REACT_APP_GET_CLIENTS, {
             method: "GET"
         })
         .then(response => response.json(""))
@@ -67,7 +67,7 @@ export default class MyClients extends Component {
     }
 
     componentDidUpdate() {
-        fetch(`https://capstone-backend-cjt.herokuapp.com/client/get/my-clients/${this.state.owner}`, {
+        fetch(process.env.REACT_APP_GET_CLIENTS, {
             method: "GET"
         })
         .then(response => response.json(""))
@@ -75,14 +75,7 @@ export default class MyClients extends Component {
         .catch(error => console.log(error))
     }
 
-    // uncheckAll(checked = true) {
-    //     const items = document.querySelectorAll('input[name="checkbox"]')
-    //     items.forEach((cb) => {
-    //         cb.checked = checked
-    //     })
-        
     
-    // }
 
     
     render() {
@@ -139,24 +132,13 @@ export default class MyClients extends Component {
                             </div>
                             <div className="buttons-wrapper">
                                 
-                                {/* <div className="checkbox-wrapper">
-                                    Check if done
-                                    <div className="checkbox">
-                                        <input 
-                                            type="checkbox"
-                                            name="checkbox"
-                                            id="check"
-                                            value={this.state.checked}
-                                            onChange={this.handleCheckboxChange}
-                                        />
-                                    </div>
-                                </div> */}
+                                
                                 <button onClick={() => this.handleDelete(client.email)}>Delete Client</button>
                                 
                             </div>
                         </div>
                     )}
-                    {/* <button onClick={() => this.uncheckAll}>Uncheck all boxes</button>                    */}
+                    
                 </div>
 
                 <Footer/>

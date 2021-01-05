@@ -49,7 +49,7 @@ export default class AddClient extends Component {
         event.preventDefault()
 
         if (this.state.checked && this.state.firstName !== "" && this.state.lastName !== "" && this.state.address !== "" && this.state.phoneNumber !== "" && this.state.dayOfWeek !== "" && this.state.email !== "") {
-            fetch("https://capstone-backend-cjt.herokuapp.com/client/add", {
+            fetch(process.env.REACT_APP_ADD_CLIENT, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

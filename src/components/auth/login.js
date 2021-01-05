@@ -26,7 +26,7 @@ export default class Login extends Component {
     handleSubmit(event) {
         event.preventDefault()
         Cookies.set("email", this.state.email)
-        fetch("https://capstone-backend-cjt.herokuapp.com/owner/authentication", {
+        fetch(process.env.REACT_APP_AUTHENTICATION, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({

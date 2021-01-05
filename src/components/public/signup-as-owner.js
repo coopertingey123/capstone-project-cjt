@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from "../navigation/notLoggedIn"
 import Footer from "../navigation/footer"
-
+// require('dotenv'.config()
 export default class OwnerSignup extends Component {
     constructor() {
         super()
@@ -32,7 +32,7 @@ export default class OwnerSignup extends Component {
         event.preventDefault()
 
         if (this.state.password === this.state.confirmPassword) {
-            fetch("https://capstone-backend-cjt.herokuapp.com/business-owner/add", {
+            fetch(process.env.REACT_APP_ADD_BUSINESS_OWNER, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
