@@ -16,7 +16,7 @@ export default class MyClients extends Component {
             owner: Cookies.get("email"),
             search: "",
             category: "Day of Week",
-            email: "",
+            // email: "",
             checked: false
         }
         this.handleChange = this.handleChange.bind(this)
@@ -39,7 +39,7 @@ export default class MyClients extends Component {
 
 
     handleDelete(email) {
-        const shouldDelete = confirm('Do you really want to delete this client?');
+        const shouldDelete = confirm(`Do you really want to delete client ${email}?`);
         if (shouldDelete) {
             fetch(`http://capstone-backend-cjt.herokuapp.com/client/delete/${email}`, { method: "DELETE" })
             .then(response => response.json())
@@ -130,11 +130,8 @@ export default class MyClients extends Component {
                                 Day of the week: {client.day_of_week}<br/><br/>
                                 Additional Info: {client.info_for_owner}<br/>
                             </div>
-                            <div className="buttons-wrapper">
-                                
-                                
+                            <div className="buttons-wrapper">  
                                 <button onClick={() => this.handleDelete(client.email)}>Delete Client</button>
-                                
                             </div>
                         </div>
                     )}
