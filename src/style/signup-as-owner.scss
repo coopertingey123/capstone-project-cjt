@@ -23,10 +23,22 @@
             background-color: $blue;
             border-radius: 5px;
             cursor: pointer;
-            // :hover {
-            //     font-size: 25px;
-            //     transition: ease-in-out;
-            // }
+            box-shadow: 5px 5px 5px 0px rgba(0,0,0,.75);
+            border: 2px solid black;
+
+            &:focus {
+                outline: none;
+            }
+        
+            &:active {
+                box-shadow: 3px 3px 5px 0px rgba(0,0,0,.75);
+                transform: translate(2px, 2px);
+            }
+            
+            &:hover {
+                background-color: $dark-blue;
+                transition: ease-in-out .5s;
+            }
         }
     }
     

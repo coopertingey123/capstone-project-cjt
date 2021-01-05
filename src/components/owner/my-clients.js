@@ -102,7 +102,15 @@ export default class MyClients extends Component {
             <div className='clients-wrapper'>
                 <Navbar/>
                 <div className='clients-list-container'>
+                    <input
+                        type="search"
+                        className="search"
+                        placeholder="Search for clients..."
+                        onChange={this.handleChange.bind(this)}
+                        value={this.state.search}  
+                    />
                     <div className="name">
+                        Search by:
                         <select
                             type="text"
                             value={this.state.category}
@@ -115,13 +123,6 @@ export default class MyClients extends Component {
                             <option value={"Email"}>Email</option>
                         </select>
                     </div>
-                    <input
-                        type="search"
-                        className="search"
-                        placeholder="Search for clients..."
-                        onChange={this.handleChange.bind(this)}
-                        value={this.state.search}  
-                    />
                 </div>
                 <div className='one-client-wrapper'>
                     {filteredClients.map(client => 

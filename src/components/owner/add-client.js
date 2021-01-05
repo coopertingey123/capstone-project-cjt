@@ -10,12 +10,18 @@ export default class AddClient extends Component {
 
         this.state = {
             firstName: "",
+            firstNameError: false,
             lastName: "",
+            lastNameError: false,
             email: "",
             address: "",
+            addressError: false,
             phoneNumber: "",
+            phoneNumberError: false,
             dayOfWeek: "",
+            dayOfWeekError: false,
             checked: false,
+            checkedError: false,
             infoForOwner: "",
             ownerEmail: "",
             emailError: false
@@ -42,7 +48,7 @@ export default class AddClient extends Component {
     handleSubmit(event) {
         event.preventDefault()
 
-        if (this.state.checked) {
+        if (this.state.checked && this.state.firstName !== "" && this.state.lastName !== "" && this.state.address !== "" && this.state.phoneNumber !== "" && this.state.dayOfWeek !== "" && this.state.email !== "") {
             fetch("https://capstone-backend-cjt.herokuapp.com/client/add", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
@@ -65,6 +71,7 @@ export default class AddClient extends Component {
                 else if (data === "Client already exists") {
                     this.setState({ emailError: true })
                 }
+                               
                 else {
                     this.setState({ error: true })
                 }
@@ -74,6 +81,26 @@ export default class AddClient extends Component {
                 this.setState({ error: true })
             })
         }
+        else if (this.state.checked === false) {
+            this.setState({ checkedError: true })
+        }
+        else if (this.state.firstName === "") {
+            this.setState({ firstNameError: true })
+        }
+        else if (this.state.lastName === "") {
+            this.setState({ lastNameError: true })
+        }
+        else if (this.state.address === "") {
+            this.setState({ addressError: true })
+        }
+        else if (this.state.email === "") {
+            this.setState({ emailError: true })
+        }
+        else if (this.state.phoneNumber === "") {
+            this.setState({ phoneNumberError: true})
+        }
+        
+        
     }
     
     render() {
@@ -204,7 +231,16 @@ export default class AddClient extends Component {
                         </div>
                         
                     </form>
-                    {this.state.error ? <p>Error signing up... Please try again later</p> : null} 
+                    
+                    {this.state.firstNameError ? <p>Error signing up: first name required</p> : null}
+                    {this.state.lastNameError ? <p>Error signing up: last name required</p> : null}
+                    {this.state.emailError ? <p>Error signing up: Email required/User already exists</p> : null}
+                    {this.state.addressError ? <p>Error signing up: address required</p> : null}
+                    {this.state.phoneNumberError ? <p>Error signing up: phone number required</p> : null}
+                    {this.state.dayOfWeekError ? <p>Error signing up: Gargabe Truck day of the week required</p> : null}
+                    {this.state.checkedError ? <p>Error signing up: Check client payment agreement</p> : null}
+
+                    
                     <Footer/>                   
                 </div>
                 

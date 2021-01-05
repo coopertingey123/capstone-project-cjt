@@ -23,6 +23,22 @@
             cursor: pointer;
             background-color: $off-white;
             border-radius: 10px;
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+            border: 2px solid black;
+
+            &:hover {
+                background-color: #ddcb8c;
+                transition: ease-in-out .5s;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        
+            &:active {
+                box-shadow: 3px 3px 5px 0px rgba(0,0,0,.75);
+                transform: translate(2px, 2px);
+            }
             
             
         }

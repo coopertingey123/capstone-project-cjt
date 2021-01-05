@@ -13,7 +13,9 @@ export default class OwnerSignup extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            emailError: false
+            emailError: false,
+            passwordError: false,
+            error: false
         }
         
         this.handleChange = this.handleChange.bind(this)
@@ -49,6 +51,7 @@ export default class OwnerSignup extends Component {
                 else if (data === "Owner already exists") {
                     this.setState({ emailError: true })
                 }
+                
                 else {
                     this.setState({ error: true })
                 }
@@ -57,6 +60,9 @@ export default class OwnerSignup extends Component {
                 console.log("Error creating client: ", error)
                 this.setState({ error: true })
             })
+        }
+        else if (this.state.password !== this.state.confirmPassword){
+            this.setState({ passwordError: true })
         }
     }
 
@@ -147,7 +153,7 @@ export default class OwnerSignup extends Component {
                     </form>
                     {this.state.error ? <p>Error signing up... Please try again later</p> : null}
                     {this.state.passwordError ? <p>Passwords do not match. Please try again</p> : null}
-                    {this.state.usernameError ? <p>Email already exists. Please enter another</p> : null}
+                    {this.state.emailError ? <p>Email already exists. Please enter another</p> : null}
                     <Footer/>
                 </div>
             </div>
